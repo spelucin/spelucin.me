@@ -1,0 +1,102 @@
+---
+import { Mail, Calendar, StickyNote, Linkedin, Twitter, Github } from 'lucide-react';
+---
+
+<section id="contact" class="w-full bg-surface-1 overflow-x-hidden">
+  <div class="max-w-6xl mx-auto px-6 py-14 max-lg:py-10 max-lg:px-4 max-[480px]:py-8 max-[480px]:px-3 min-w-0 w-full">
+    <div class="flex items-end justify-between border-b border-glass pb-6 mb-8 flex-wrap gap-4 max-lg:flex-col max-lg:items-start">
+      <div class="flex flex-col gap-2">
+        <h2 class="font-display text-3xl leading-9 text-text-0 max-lg:text-2xl max-lg:leading-8 max-[480px]:text-xl max-[480px]:leading-7">
+          Colaboremos
+        </h2>
+        <p class="text-xl leading-7 text-text-1 max-lg:text-base max-lg:leading-6 max-[480px]:text-[0.9375rem] max-[480px]:leading-6">
+          Cuéntame sobre tus objetivos, cronograma y pila tecnológica.
+        </p>
+      </div>
+      <div class="hidden max-lg:flex items-center gap-2 text-sm leading-5 text-slate-500 min-w-0">
+        <Mail size={20} className="w-5 h-5 text-primary flex-shrink-0" client:load />
+        <span class="break-words min-w-0">Respuesta prom. en 24 horas</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-8 max-lg:gap-6 max-[480px]:gap-4">
+      <form
+        method="post"
+        action="#"
+        role="region"
+        aria-label="Calendar scheduling placeholder"
+        class="col-span-7 bg-surface-2 border border-glass rounded-md p-6 flex flex-col gap-5 max-lg:col-span-12"
+      >
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-3 mb-2">
+            <Calendar size={20} className="w-5 h-5 text-primary" aria-hidden="true" client:load />
+            <h3 class="font-display text-xl leading-7 text-text-0">Marcador de posición del calendario</h3>
+          </div>
+          <p class="text-sm leading-5 text-text-1">
+            Este espacio está reservado para el calendario de programación. Un widget de calendario aparecerá aquí para reservar una hora.
+          </p>
+          <div
+            role="img"
+            aria-label="Empty area reserved for scheduling widget"
+            class="w-full min-h-[520px] border-2 border-dashed border-glass rounded-md bg-surface-1 max-lg:min-h-[420px] max-[480px]:min-h-[300px]"
+          ></div>
+        </div>
+      </form>
+      <aside class="col-span-5 flex flex-col gap-5 max-lg:col-span-12 max-lg:mt-8">
+        <div class="bg-[rgba(17,24,39,0.5)] border border-glass rounded-md p-6 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.02)] max-[480px]:p-4">
+          <div class="flex flex-col gap-4">
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-3 text-text-0 hover:text-primary transition-colors"
+            >
+              <Linkedin size={20} className="w-5 h-5 text-primary flex-shrink-0" client:load />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-3 text-text-0 hover:text-primary transition-colors"
+            >
+              <Twitter size={20} className="w-5 h-5 text-primary flex-shrink-0" client:load />
+              <span>Twitter</span>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-3 text-text-0 hover:text-primary transition-colors"
+            >
+              <Github size={20} className="w-5 h-5 text-primary flex-shrink-0" client:load />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="mailto:alex@example.com"
+              class="flex items-center gap-3 text-text-0 hover:text-primary transition-colors"
+            >
+              <Mail size={20} className="w-5 h-5 text-primary flex-shrink-0" client:load />
+              <span>alex@example.com</span>
+            </a>
+          </div>
+        </div>
+        <div class="bg-[rgba(17,24,39,0.5)] border border-glass rounded-md p-6 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.02)] hover:border-glass-hover hover:shadow-[0_12px_40px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-150 focus:outline-2 focus:outline-transparent focus:shadow-[0_0_0_0px_#fff,0_0_0_calc(2px+0px)_rgba(165,243,252,0.5),0_4px_6px_-1px_rgba(0,0,0,0.4),0_2px_4px_-2px_rgba(0,0,0,0.4)] max-[480px]:p-4">
+          <div class="flex items-center gap-3 mb-2">
+            <StickyNote size={20} className="w-5 h-5 text-primary" client:load />
+            <h3 class="font-display text-xl leading-7 text-text-0">Auditoría de analítica gratuita</h3>
+          </div>
+          <p class="text-text-1 mb-4 max-[480px]:text-[0.9375rem] max-[480px]:leading-6">
+            Obtén una auditoría rápida de tu configuración de GA4 y dashboards con recomendaciones para mejorar la calidad de datos y reportes.
+          </p>
+          <a
+            href="#contact"
+            class="inline-block mt-4 px-4 py-2 font-medium shadow-[0_0_#0000,0_0_#0000,0_1px_2px_0_rgba(0,0,0,0.05)] transition-all duration-150 bg-primary text-text-invert border-transparent rounded hover:opacity-95 focus:shadow-[0_0_0_0px_#fff,0_0_0_calc(2px+0px)_rgba(165,243,252,0.5),0_4px_6px_-1px_rgba(0,0,0,0.4),0_2px_4px_-2px_rgba(0,0,0,0.4)] focus:outline-2 focus:outline-transparent focus:outline-offset-2 max-[480px]:px-4 max-[480px]:py-2.5 max-[480px]:text-[0.9375rem]"
+          >
+            Solicitar auditoría
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+

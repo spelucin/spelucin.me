@@ -1,0 +1,100 @@
+---
+// Mobile menu toggle functionality
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuButton = document.getElementById('mobile-menu-button');
+    const navigation = document.getElementById('navbar-navigation');
+    const overlay = document.getElementById('mobile-menu-overlay');
+
+    if (!menuButton || !navigation) {
+      return;
+    }
+
+    function toggleMenu(isOpen: boolean) {
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      navigation.setAttribute('aria-expanded', String(isOpen));
+
+      if (overlay) {
+        if (isOpen) {
+          overlay.classList.add('active');
+        } else {
+          overlay.classList.remove('active');
+        }
+      }
+
+      // Prevent body scroll when menu is open
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Toggle menu on button click
+    menuButton.addEventListener('click', function () {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      toggleMenu(!isExpanded);
+    });
+
+    // Close menu when clicking close button
+    const closeButton = document.getElementById('mobile-menu-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    }
+
+    // Close menu when clicking on a link
+    const navLinks = navigation.querySelectorAll('a');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    });
+
+    // Close menu when clicking on overlay
+    if (overlay) {
+      overlay.addEventListener('click', function () {
+        toggleMenu(false);
+      });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function (event) {
+      const isClickInsideNav = navigation.contains(event.target as Node);
+      const isClickOnButton = menuButton.contains(event.target as Node);
+      const isClickOnOverlay = overlay && overlay.contains(event.target as Node);
+
+      if (
+        !isClickInsideNav &&
+        !isClickOnButton &&
+        !isClickOnOverlay &&
+        navigation.getAttribute('aria-expanded') === 'true'
+      ) {
+        toggleMenu(false);
+      }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && navigation.getAttribute('aria-expanded') === 'true') {
+        toggleMenu(false);
+        (menuButton as HTMLElement).focus();
+      }
+    });
+
+    // Handle window resize - close menu if window becomes large enough
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        if (window.innerWidth > 992 && navigation.getAttribute('aria-expanded') === 'true') {
+          toggleMenu(false);
+        }
+      }, 250);
+    });
+  });
+</script>
+
