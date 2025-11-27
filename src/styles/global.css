@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.12);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --border-glass-hover: rgba(165, 243, 252, 0.3);
 }
 
 html {
@@ -56,6 +56,66 @@ video {
 
 .status-dot {
   animation: dot-pulse 1.4s ease-in-out infinite;
+}
+
+@layer base {
+
+  /* Standardized Heading Styles */
+  h1 {
+    @apply font-display text-4xl leading-tight text-text-0;
+    @apply max-lg:text-3xl max-lg:leading-9;
+    @apply max-[480px]:text-2xl max-[480px]:leading-8;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply font-display text-3xl leading-9 text-text-0;
+    @apply max-lg:text-2xl max-lg:leading-8;
+    @apply max-[480px]:text-xl max-[480px]:leading-7;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    @apply font-display text-xl leading-7 text-text-0;
+    @apply max-lg:text-lg max-lg:leading-6;
+    @apply max-[480px]:text-base max-[480px]:leading-6;
+    margin: 0;
+    padding: 0;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    @apply font-display text-lg leading-6 text-text-0;
+    @apply max-lg:text-base max-lg:leading-6;
+    @apply max-[480px]:text-sm max-[480px]:leading-5;
+    margin: 0;
+    padding: 0;
+  }
+
+  h5 {
+    @apply font-display text-base leading-6 text-text-0;
+    @apply max-lg:text-sm max-lg:leading-5;
+    @apply max-[480px]:text-xs max-[480px]:leading-5;
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    @apply font-display text-sm leading-5 text-text-0;
+    @apply max-lg:text-xs max-lg:leading-4;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Paragraph base styles for consistency */
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @layer utilities {

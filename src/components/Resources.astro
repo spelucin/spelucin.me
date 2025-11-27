@@ -1,0 +1,121 @@
+---
+// Resources section showcasing external tools and resources
+// To add a new resource, simply add a new object to the resources array below
+
+const resources = [
+  {
+    name: "Google Analytics Academy",
+    description: "Cursos gratuitos para dominar Google Analytics y aprender análisis de datos.",
+    url: "https://analytics.google.com/analytics/academy/",
+    category: "Educación",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=Google+Analytics"
+  },
+  {
+    name: "Measure School",
+    description: "Tutoriales avanzados sobre analítica web, GTM y seguimiento de conversiones.",
+    url: "https://measureschool.com/",
+    category: "Tutoriales",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=Measure+School"
+  },
+  {
+    name: "GA4 Documentation",
+    description: "Documentación oficial completa de Google Analytics 4.",
+    url: "https://developers.google.com/analytics/devguides/collection/ga4",
+    category: "Documentación",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=GA4+Docs"
+  },
+  {
+    name: "Looker Studio Templates",
+    description: "Plantillas profesionales de dashboards para visualización de datos.",
+    url: "https://lookerstudio.google.com/",
+    category: "Plantillas",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=Looker+Studio"
+  },
+  {
+    name: "Analytics Mania",
+    description: "Blog experto sobre Google Tag Manager y analítica digital avanzada.",
+    url: "https://www.analyticsmania.com/",
+    category: "Blog",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=Analytics+Mania"
+  },
+  {
+    name: "SQL Tutorial",
+    description: "Aprende SQL desde cero hasta nivel avanzado con ejemplos prácticos.",
+    url: "https://www.w3schools.com/sql/",
+    category: "Educación",
+    image: "https://placehold.co/600x400/1e293b/a5f3fc?text=SQL+Tutorial"
+  }
+];
+---
+
+<section id="resources" class="w-full bg-surface-0 overflow-x-hidden">
+  <div class="max-w-6xl mx-auto px-6 py-14 max-lg:py-10 max-lg:px-4 max-[480px]:py-8 max-[480px]:px-3 min-w-0 w-full">
+    <div class="flex items-end justify-between border-b border-glass pb-6 mb-8 flex-wrap gap-4 max-lg:flex-col max-lg:items-start">
+      <div class="flex flex-col gap-2">
+        <h2>
+          <span class="text-text-0">Recursos y</span> <span class="text-text-1">Herramientas</span>
+        </h2>
+        <p class="text-xl leading-7 text-text-1 max-lg:text-base max-lg:leading-6 max-[480px]:text-[0.9375rem] max-[480px]:leading-6">
+          Recursos externos útiles para aprender más sobre analítica web, desarrollo y visualización de datos.
+        </p>
+      </div>
+      <a
+        href="#contact"
+        class="px-4 py-2 font-medium shadow-[0_0_#0000,0_0_#0000,0_1px_2px_0_rgba(0,0,0,0.05)] transition-all duration-150 bg-transparent text-primary border border-primary rounded hover:bg-primary hover:text-text-invert focus:shadow-[0_0_0_0px_#fff,0_0_0_calc(2px+0px)_rgba(165,243,252,0.5),0_4px_6px_-1px_rgba(0,0,0,0.4),0_2px_4px_-2px_rgba(0,0,0,0.4)] focus:outline-2 focus:outline-transparent focus:outline-offset-2 max-[480px]:px-4 max-[480px]:py-2.5 max-[480px]:text-[0.9375rem]"
+      >
+        Solicitar consulta
+      </a>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-lg:gap-4 max-[480px]:grid-cols-1 max-[480px]:gap-4">
+      {resources.map((resource) => (
+        <a
+          href={resource.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-surface-2 border border-glass rounded-lg transition-all duration-150 shadow-md hover:border-glass-hover hover:shadow-lg hover:scale-[1.02] flex flex-col overflow-hidden group"
+        >
+          <div class="overflow-hidden aspect-video">
+            <img 
+              src={resource.image} 
+              alt={resource.name}
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-6 flex flex-col gap-3 flex-1 max-[480px]:p-5">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="group-hover:text-primary transition-colors duration-150">
+                {resource.name}
+              </h3>
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+                class="flex-shrink-0 text-text-1 group-hover:text-primary transition-colors duration-150"
+                aria-label="External link"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </div>
+            <p class="text-sm text-text-1 leading-relaxed flex-1">
+              {resource.description}
+            </p>
+            <div class="flex items-center gap-2">
+              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                {resource.category}
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
